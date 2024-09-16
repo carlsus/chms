@@ -9,6 +9,11 @@ This project runs with Laravel version 5.5.
 Assuming you've already installed on your machine: PHP (>= 8.1.0), [Laravel](https://laravel.com), [Composer](https://getcomposer.org) and [Node.js](https://nodejs.org).
 
 ``` bash
+#download repository
+
+git clone -b dev https://github.com/carlsus/chms.git
+
+``` bash
 # install dependencies
 composer install
 npm install
