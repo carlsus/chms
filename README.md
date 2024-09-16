@@ -10,7 +10,6 @@ Assuming you've already installed on your machine: PHP (>= 8.1.0), [Laravel](htt
 
 ``` bash
 #download repository
-
 git clone -b dev https://github.com/carlsus/chms.git
 
 ``` bash
@@ -21,6 +20,7 @@ npm install
 # create .env file and generate the application key
 cp .env.example .env
 php artisan key:generate
+php artisan migrate
 
 # build CSS and JS assets
 npm run dev
