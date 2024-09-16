@@ -1,8 +1,8 @@
-# Laravel Sample
+# Laravel CHMS
 
 > Laravel sample website with content retrieving from [carlsus.io](https://carlsus.io)
 
-This project runs with Laravel version 5.5.
+This project runs with Laravel version 10.
 
 ## Getting started
 
