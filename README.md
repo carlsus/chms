@@ -12,7 +12,7 @@ Assuming you've already installed on your machine: PHP (>= 8.1.0), [Laravel](htt
 #download repository
 git clone -b dev https://github.com/carlsus/chms.git
 
-``` bash
+
 # install dependencies
 composer install
 npm install
