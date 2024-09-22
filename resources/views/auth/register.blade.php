@@ -15,42 +15,15 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-        <!--
-  This example requires some changes to your config:
 
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<div>
-    <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Leader</label>
-    <div class="relative mt-2 rounded-md shadow-sm">
 
-      <div class="absolute inset-y-0 right-0 flex items-center">
-        <label for="currency" class="sr-only">Currency</label>
-
-      </div>
-    </div>
-  </div>
-    <div class="mt-4">
-        <label for="custom_field" class="block font-medium text-sm text-gray-700">Custom Field</label>
-        <select id="currency" name="currency" >
-            <option>USD</option>
-            <option>CAD</option>
-            <option>EUR</option>
-          </select>
-    </div>
         <div class="mt-4">
-            <label for="custom_field" class="block font-medium text-sm text-gray-700">Custom Field</label>
-            <input id="custom_field" type="text" name="custom_field" value="{{ old('custom_field') }}" required autocomplete="custom_field" class="form-input rounded-md shadow-sm mt-1 block w-full"/>
+            <x-input-select id="user_id" name="user_id" class="block mt-1 w-full">
+                <option>0</option>
+            </x-input-select>
+            <x-input-error :messages="$errors->get('user_id')" class="mt-2" />
         </div>
+
 
         <!-- Password -->
         <div class="mt-4">
