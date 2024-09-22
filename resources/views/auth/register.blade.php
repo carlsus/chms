@@ -18,10 +18,9 @@
 
 
         <div class="mt-4">
-            <x-input-select id="user_id" name="user_id" class="block mt-1 w-full">
-                <option>0</option>
-            </x-input-select>
-            <x-input-error :messages="$errors->get('user_id')" class="mt-2" />
+            <x-input-label for="email" :value="__('Member Group')" />
+            <x-input-select :options="$member_groups" id="group_id" name="group_id" class="block mt-1 w-full" />
+            <x-input-error :messages="$errors->get('group_id')" class="mt-2" />
         </div>
 
 
