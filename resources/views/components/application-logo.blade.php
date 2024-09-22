@@ -1,3 +1,1 @@
-<svg viewBox="0 0 316 316" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
-    <path d="{{ asset('images/logo.jpg') }}"/>
-</svg>
+<img src="{{ asset('images/banner.png') }}" alt="Logo" class="h-60 fill-current text-gray-500" >
