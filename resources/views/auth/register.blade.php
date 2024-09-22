@@ -20,6 +20,7 @@
             <label for="custom_field" class="block font-medium text-sm text-gray-700">Custom Field</label>
             <input id="custom_field" type="text" name="custom_field" value="{{ old('custom_field') }}" required autocomplete="custom_field" class="form-input rounded-md shadow-sm mt-1 block w-full"/>
         </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
