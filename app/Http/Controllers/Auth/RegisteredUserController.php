@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\MemberGroup;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -20,7 +21,9 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $member_groups=MemberGroup::pluck('id', 'group_name')->toArray();
+        //dd($member_groups);
+        return view('auth.register',compact('member_groups'));
     }
 
     /**
@@ -32,7 +35,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'custom_field' => ['required', 'string', 'max:255'],
+            'group_id' => ['required', 'integer'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -40,7 +43,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'custom_field' =>  $request->custom_field,
+            'group_id' =>  $request->group_id,
             'password' => Hash::make($request->password),
         ]);
 

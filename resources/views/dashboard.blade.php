@@ -10,6 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+
+
+
+
                     <ul role="list" class="divide-y divide-gray-100">
                         <li class="flex justify-between gap-x-6 py-5">
                           <div class="flex min-w-0 gap-x-4">
