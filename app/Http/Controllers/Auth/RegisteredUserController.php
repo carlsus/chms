@@ -19,6 +19,8 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
+
+
     public function create(): View
     {
         $member_groups=MemberGroup::pluck('id', 'group_name')->toArray();
@@ -35,7 +37,6 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'group_id' => ['required', 'integer'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -43,7 +44,6 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'group_id' =>  $request->group_id,
             'password' => Hash::make($request->password),
         ]);
 

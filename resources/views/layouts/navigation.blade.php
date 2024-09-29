@@ -41,7 +41,7 @@
                             <x-dropdown-link :href="route('membergroup.index')">
                                 {{ __('Members Group') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.edit')">
+                            <x-dropdown-link :href="route('profile.index')">
                                 {{ __('User Accounts') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('profile.edit')">
