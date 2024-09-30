@@ -49,6 +49,14 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        if (Auth::user()->status !== 'approved') {
+            Auth::logout(); // Log the user out if they're not an admin
+
+            throw ValidationException::withMessages([
+                'email' => trans('auth.not_authorized'), // Custom error message for role failure
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 
