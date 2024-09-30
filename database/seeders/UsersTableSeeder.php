@@ -20,7 +20,9 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('admin'),
             'gender' => 'Male',
             'user_type' => 'user',
-            'built_in' => 1
+            'built_in' => 1,
+            'group_id' => 1,
+            'status' => 'approved'
         ]);
 
         User::create([
@@ -29,7 +31,9 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('leader'),
             'gender' => 'Male',
             'user_type' => 'member',
-            'built_in' => 1
+            'built_in' => 1,
+            'group_id' => 2,
+            'status' => 'approved'
         ]);
     }
 }

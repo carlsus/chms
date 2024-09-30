@@ -45,11 +45,17 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'gender' => $request->gender
         ]);
 
-        event(new Registered($user));
+        $user->memberjourney()->createMany([
+            ['journey_id' => '1'],
+            ['journey_id' => '2'],
+            ['journey_id' => '3']
+        ]);
+        //event(new Registered($user));
 
-        Auth::login($user);
+        //Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }

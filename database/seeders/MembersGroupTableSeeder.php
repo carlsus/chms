@@ -14,6 +14,10 @@ class MembersGroupTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('member_groups')->insert([
+            'id' => 1,
+            'group_name' => 'User'
+        ]);
+        DB::table('member_groups')->insert([
             'group_name' => 'FLM'
         ]);
         DB::table('member_groups')->insert([
