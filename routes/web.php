@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MemberGroupController;
 use App\Http\Controllers\ProfileController;
+use App\Models\MemberGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('membergroup', MemberGroupController::class);
-
+    Route::put('membergroup', [MemberGroup::class, 'update'])->name('membergroup.update');
 });
 
 require __DIR__.'/auth.php';
