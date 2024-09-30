@@ -3,7 +3,6 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('User Accounts') }}
-            <a href="{{ route('profile.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">Create New</a>
 
         </h2>
 
@@ -12,37 +11,58 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
                 <div class="p-6 text-gray-900">
-                    <table class="border-collapse table-auto w-full text-sm">
-                        <thead>
-                            <tr>
-                                <th class="border-b ">Group Name</th>
-                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 text-left">Created At</th>
-                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 text-left">Updated At</th>
-                                <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 text-left">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white">
-
-                            @foreach ($user_accounts as $value)
+                    <p>
+                        <a href="{{ route('profile.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">Create New</a>
+                    </p>
+                    <br>
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left  text-gray-500 dark:text-gray-400">
+                            <thead class="text-lg text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-black-200">
                                 <tr>
-                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $value->name }}</td>
-                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $value->created_at }}</td>
-                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $value->updated_at }}</td>
-                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-                                        {{-- <a href="{{ route('profile.show', $value->id) }}" class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">SHOW</a> --}}
-                                        <a href="{{ route('profile.edit', $value->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDIT</a>
+                                    <th scope="col" class="px-4  py-4" width="600px" align="left">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-4 py-4" width="200px" align="left">
+                                        Created at
+                                    </th>
+                                    <th scope="col" class="px-4 py-4" width="200px" align="left">
+                                        Updated at
+                                    </th>
 
-                                        <form method="post" action="{{ route('profile.destroy', $value->id) }}" class="inline">
+                                    <th scope="col" class="px-4 py-4" width="100px" align="left">
+                                       Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($user_accounts as $value)
+                                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        {{ $value->name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $value->created_at }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $value->updated }}
+                                    </td>
+
+                                    <td class="py-4" align="left">
+                                        <a href="{{ route('profile.edit', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> | Delete
+                                        {{-- <form method="post" action="{{ route('membergroup.destroy', $value->id) }}" class="inline">
                                             @csrf
                                             @method('delete')
+
                                             <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">DELETE</button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
