@@ -63,11 +63,24 @@
                             <x-dropdown-link :href="route('membergroup.index')">
                                 {{ __('Members Group') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.index')">
-                                {{ __('User Accounts') }}
-                            </x-dropdown-link>
+
                             <x-dropdown-link :href="route('profile.member')">
                                 {{ __('Members') }}
+                            </x-dropdown-link>
+                            <hr>
+                            <x-dropdown-link :href="route('profile.member')">
+                                {{ __('One2One') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('profile.member')">
+                                {{ __('Victory Weekend') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('profile.member')">
+                                {{ __('E2E') }}
+                            </x-dropdown-link>
+                            <hr>
+
+                            <x-dropdown-link :href="route('profile.index')">
+                                {{ __('User Accounts') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('User Role') }}
