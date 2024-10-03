@@ -17,7 +17,7 @@ class ProfileController extends Controller
 {
     public function index(): View
     {
-        $user_accounts=User::all();
+        $user_accounts=User::where('user_type', 'user')->get();
 
         return view('profile.index',compact('user_accounts'));
     }
@@ -36,6 +36,13 @@ class ProfileController extends Controller
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
+    }
+
+    public function members(): View
+    {
+        $members=User::where('user_type', 'member')->get();
+
+        return view('profile.member',compact('members'));
     }
 
     /**
