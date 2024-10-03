@@ -66,6 +66,9 @@
                             <x-dropdown-link :href="route('profile.index')">
                                 {{ __('User Accounts') }}
                             </x-dropdown-link>
+                            <x-dropdown-link :href="route('profile.member')">
+                                {{ __('Members') }}
+                            </x-dropdown-link>
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('User Role') }}
                             </x-dropdown-link>
