@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/index', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/create', [ProfileController::class, 'create'])->name('profile.create');
     Route::get('/profile/member', [ProfileController::class, 'members'])->name('profile.member');
+    Route::get('/profile/show', [ProfileController::class, 'show'])->name('profile.show');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 

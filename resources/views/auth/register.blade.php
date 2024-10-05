@@ -10,15 +10,16 @@
         </div>
         <div>
             <x-input-label for="gender" :value="__('Gender')" />
-            <select id="gender" name="gender">
+            <select id="gender" name="gender" class="block mt-1 w-full">
+                <option value="">Select</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <x-input-error :messages="$errors->get('group_id')" class="mt-2" />
+            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
         </div>
         <div>
             <x-input-label for="group_id" :value="__('Member Category')" />
-            <x-text-input id="group_id" class="block mt-1 w-full" type="text" name="group_id" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-select :options="$member_groups" id="group_id" name="group_id" class="block mt-1 w-full"/>
             <x-input-error :messages="$errors->get('group_id')" class="mt-2" />
         </div>
 

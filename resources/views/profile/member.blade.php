@@ -56,7 +56,7 @@
                                     </td>
 
                                     <td class="py-4" align="left">
-                                        Approve |<a href="{{ route('profile.edit', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> | Delete
+                                        Approve |<a href="{{ route('profile.show', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> | Delete
                                         {{-- <form method="post" action="{{ route('membergroup.destroy', $value->id) }}" class="inline">
                                             @csrf
                                             @method('delete')
