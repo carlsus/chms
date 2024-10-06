@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('journeys', function (Blueprint $table) {
+        Schema::create('victory_weekends', function (Blueprint $table) {
             $table->id();
-            $table->string('journey_name');
+            $table->string('batch_no');
+            $table->date('event_date')->nullable();
+            $table->string('location');
+            $table->string('details');
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('journeys');
+        Schema::dropIfExists('victory_weekends');
     }
 };

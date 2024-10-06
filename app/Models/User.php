@@ -21,7 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'gender'
+        'gender',
+        'group_id',
+        'leader_id'
     ];
 
     /**
@@ -44,8 +46,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function memberjourney()
+    public function one2one()
     {
-        return $this->hasMany(MemberJourney::class);
+        return $this->hasOne(One2One::class);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MemberJourney;
+use App\Models\One2One;
 use Illuminate\Http\Request;
 
-class MemberJourneyController extends Controller
+class One2OneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class MemberJourneyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(MemberJourney $memberJourney)
+    public function show(One2One $one2One)
     {
         //
     }
@@ -42,7 +42,7 @@ class MemberJourneyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MemberJourney $memberJourney)
+    public function edit(One2One $one2One)
     {
         //
     }
@@ -50,7 +50,7 @@ class MemberJourneyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MemberJourney $memberJourney)
+    public function update(Request $request, One2One $one2One)
     {
         //
     }
@@ -58,7 +58,7 @@ class MemberJourneyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MemberJourney $memberJourney)
+    public function destroy(One2One $one2One)
     {
         //
     }

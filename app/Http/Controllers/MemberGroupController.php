@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MemberGroupRequest;
 use App\Models\MemberGroup;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 
@@ -66,9 +67,18 @@ class MemberGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MemberGroup $memberGroup)
+    public function update(MemberGroupRequest $request, string $id): RedirectResponse
     {
-        //
+        $membergroup = MemberGroup::findOrFail($id);
+
+        $membergroup->update($request->validated());
+
+        if($membergroup) {
+            session()->flash('notif.success', 'Post updated successfully!');
+            return redirect()->route('membergroup.index');
+        }
+
+        return abort(500);
     }
 
     /**

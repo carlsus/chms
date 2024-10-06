@@ -61,4 +61,16 @@
             </div>
         </div>
     </div>
+    <script>
+        function confirmDelete() {
+            let confirmation = confirm("Are you sure you want to delete this item?");
+
+            if (confirmation) {
+                alert("Item has been deleted.");
+                // Code to delete the item goes here
+            } else {
+                alert("Item was not deleted.");
+            }
+        }
+    </script>
 </x-app-layout>

@@ -22,7 +22,9 @@ class UsersTableSeeder extends Seeder
             'user_type' => 'user',
             'built_in' => 1,
             'group_id' => 1,
-            'status' => 'approved'
+            'status' => 'approved',
+
+
         ]);
 
         User::create([
@@ -30,10 +32,11 @@ class UsersTableSeeder extends Seeder
             'email' => 'leader@leader.com',
             'password' => Hash::make('leader'),
             'gender' => 'Male',
-            'user_type' => 'member',
+            'user_type' => 'leader',
             'built_in' => 1,
             'group_id' => 2,
-            'status' => 'approved'
+            'status' => 'approved',
+            'leader_id' => 1
         ]);
     }
 }

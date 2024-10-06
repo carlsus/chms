@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('member_journeys', function (Blueprint $table) {
+        Schema::create('one2_ones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('journey_id')->unsigned()->nullable();
-            $table->foreign('journey_id')->references('id')->on('journeys')->onDelete('cascade');
-            $table->unsignedBigInteger('user_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('leader_id')->unsigned()->nullable();
             $table->foreign('leader_id')->references('id')->on('users')->onDelete('cascade');
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('member_journeys');
+        Schema::dropIfExists('one2_ones');
     }
 };

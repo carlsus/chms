@@ -24,17 +24,28 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function create(): View
+    public function create()
     {
         $member_groups=MemberGroup::pluck('id', 'group_name')->toArray();
         //dd($member_groups);
-        return view('profile.form',compact('member_groups'));
+        return response()->view('profile.form',compact('member_groups'));
     }
 
-    public function edit(Request $request): View
+    public function edit(string $id)
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
+        $member_groups=MemberGroup::pluck('id', 'group_name')->toArray();
+        return response()->view('profile.form', [
+            'users' => User::findOrFail($id),
+            'member_groups' => $member_groups
+        ]);
+    }
+
+    public function show(string $id)
+    {
+        $leader=User::where('user_type', 'leader')->pluck('id', 'name');
+        return response()->view('profile.approval', [
+            'users' => User::findOrFail($id),
+            'leader' => $leader
         ]);
     }
 
@@ -50,6 +61,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -63,14 +75,19 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required'],
+            'group_id' => ['required'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $create = User::create([
             'name' => $request->name,
+            'gender' => $request->gender,
+            'group_id' => $request->group_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

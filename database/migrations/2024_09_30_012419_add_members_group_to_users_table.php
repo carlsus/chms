@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('group_id')->unsigned()->nullable();
             $table->foreign('group_id')->references('id')->on('member_groups')->onDelete('cascade');
+
+            $table->unsignedBigInteger('leader_id')->unsigned()->nullable();
+
         });
     }
 
