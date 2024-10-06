@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{-- don't forget to add multipart/form-data so we can accept file in our form --}}
-                    <form method="post" action="{{ route('profile.store', $users->id)  }}" class="mt-6 space-y-6" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('profile.update', $users->id)  }}" class="mt-6 space-y-6" enctype="multipart/form-data">
 
                         @csrf
 
@@ -21,7 +21,15 @@
                         <div>
                             <x-input-label for="name" :value="__('Name')" />
                             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="$users->name ?? old('name')"  required autofocus autocomplete="name" />
+                            <x-text-input id="id" class="block mt-1 w-full" type="hidden" name="id" :value="$users->id ?? old('id')"  />
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="mt-4">
+                            <x-input-label for="email" :value="__('Email')" />
+                            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="$users->email ?? old('email')"  required autocomplete="username" />
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
                         <div>
