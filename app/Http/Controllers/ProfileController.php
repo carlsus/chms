@@ -31,19 +31,21 @@ class ProfileController extends Controller
         return response()->view('profile.form',compact('member_groups'));
     }
 
-    public function edit(Request $request)
+    public function edit(string $id)
     {
         $member_groups=MemberGroup::pluck('id', 'group_name')->toArray();
         return response()->view('profile.form', [
-            'user' => $request->user(),
+            'users' => User::findOrFail($id),
             'member_groups' => $member_groups
         ]);
     }
 
-    public function show(Request $request): View
+    public function show(string $id)
     {
-        return view('profile.form', [
-            'user' => $request->user(),
+        $leader=User::where('user_type', 'leader')->pluck('id', 'name');
+        return response()->view('profile.approval', [
+            'users' => User::findOrFail($id),
+            'leader' => $leader
         ]);
     }
 
@@ -59,6 +61,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -72,6 +75,7 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'gender' => ['required'],

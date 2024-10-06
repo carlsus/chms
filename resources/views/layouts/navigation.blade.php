@@ -38,7 +38,7 @@
                             <x-dropdown-link :href="route('profile.index')">
                                 {{ __('Victory Weekend') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.edit')">
+                            <x-dropdown-link :href="route('profile.index')">
                                 {{ __('E2E') }}
                             </x-dropdown-link>
                         </x-slot>
@@ -68,13 +68,13 @@
                                 {{ __('Members') }}
                             </x-dropdown-link>
                             <hr>
-                            <x-dropdown-link :href="route('profile.member')">
+                            <x-dropdown-link :href="route('chapter.index')">
                                 {{ __('One2One') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.member')">
+                            <x-dropdown-link :href="route('victoryweekend.index')">
                                 {{ __('Victory Weekend') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.member')">
+                            <x-dropdown-link :href="route('e2e.index')">
                                 {{ __('E2E') }}
                             </x-dropdown-link>
                             <hr>
@@ -82,7 +82,7 @@
                             <x-dropdown-link :href="route('profile.index')">
                                 {{ __('User Accounts') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.edit')">
+                            <x-dropdown-link :href="route('profile.index')">
                                 {{ __('User Role') }}
                             </x-dropdown-link>
                         </x-slot>
@@ -106,7 +106,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('profile.index')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -152,7 +152,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('profile.index')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 

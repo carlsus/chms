@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Members') }}
+            {{ __('E2E') }}
 
         </h2>
 
@@ -14,7 +14,7 @@
 
                 <div class="p-6 text-gray-900">
                     <p>
-                        <a href="{{ route('profile.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">Create New</a>
+                        <a href="{{ route('e2e.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">Create New</a>
                     </p>
                     <br>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -22,42 +22,37 @@
                             <thead class="text-lg text-gray-700  bg-gray-50 dark:bg-gray-700 dark:text-black-200">
                                 <tr>
                                     <th scope="col" class="px-4  py-4" width="600px" align="left">
-                                        Name
+                                        Batch No
                                     </th>
                                     <th scope="col" class="px-4  py-4" width="600px" align="left">
-                                        Status
+                                        Date
                                     </th>
-                                    <th scope="col" class="px-4 py-4" width="200px" align="left">
-                                        Created at
-                                    </th>
-                                    <th scope="col" class="px-4 py-4" width="200px" align="left">
-                                        Updated at
+                                    <th scope="col" class="px-4  py-4" width="600px" align="left">
+                                        Facilitator
                                     </th>
 
-                                    <th scope="col" class="px-4 py-4" width="200px" align="left">
+
+                                    <th scope="col" class="px-4 py-4" width="100px" align="left">
                                        Action
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($members as $value)
+                                @foreach ($e2e as $value)
                                 <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                        {{ $value->name }}
+                                        {{ $value->batch_no }}
                                     </td>
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                        {{ $value->status }}
+                                        {{ $value->event_date }}
                                     </td>
-                                    <td class="px-6 py-4">
-                                        {{ $value->created_at }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $value->updated }}
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        {{ $value->facilitator }}
                                     </td>
 
+
                                     <td class="py-4" align="left">
-                                        <a href="{{ route('profile.show', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Approve</a> |
-                                        <a href="{{ route('profile.edit', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> | Delete
+                                        <a href="{{ route('e2e.edit', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> | Delete
                                         {{-- <form method="post" action="{{ route('membergroup.destroy', $value->id) }}" class="inline">
                                             @csrf
                                             @method('delete')
@@ -74,4 +69,16 @@
             </div>
         </div>
     </div>
+    <script>
+        function confirmDelete() {
+            let confirmation = confirm("Are you sure you want to delete this item?");
+
+            if (confirmation) {
+                alert("Item has been deleted.");
+                // Code to delete the item goes here
+            } else {
+                alert("Item was not deleted.");
+            }
+        }
+    </script>
 </x-app-layout>

@@ -47,14 +47,11 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'gender' => $request->gender
+            'gender' => $request->gender,
+            'group_id' => $request->group_id
         ]);
 
-        $user->memberjourney()->createMany([
-            ['journey_id' => '1'],
-            ['journey_id' => '2'],
-            ['journey_id' => '3']
-        ]);
+        $user->one2one()->create();
         //event(new Registered($user));
 
         //Auth::login($user);
