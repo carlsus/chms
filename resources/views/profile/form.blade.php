@@ -32,11 +32,13 @@
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
+                            <input type="text">
                             <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                         </div>
                         <div>
-                            <x-input-label for="group_id" :value="__('Member Category')" />
+
                             <x-input-select :options="$member_groups" id="group_id" name="group_id" class="block mt-1 w-full"/>
+
                             <x-input-error :messages="$errors->get('group_id')" class="mt-2" />
                         </div>
 

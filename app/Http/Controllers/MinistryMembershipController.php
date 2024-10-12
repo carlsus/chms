@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\One2One;
+use App\Models\MinistryMembership;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class One2OneController extends Controller
+class MinistryMembershipController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        dd(Auth::user()->user_type);
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class One2OneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(One2One $one2One)
+    public function show(MinistryMembership $ministryMembership)
     {
         //
     }
@@ -43,7 +42,7 @@ class One2OneController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(One2One $one2One)
+    public function edit(MinistryMembership $ministryMembership)
     {
         //
     }
@@ -51,7 +50,7 @@ class One2OneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, One2One $one2One)
+    public function update(Request $request, MinistryMembership $ministryMembership)
     {
         //
     }
@@ -59,7 +58,7 @@ class One2OneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(One2One $one2One)
+    public function destroy(MinistryMembership $ministryMembership)
     {
         //
     }

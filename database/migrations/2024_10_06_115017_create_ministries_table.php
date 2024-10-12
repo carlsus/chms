@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('e2_e_s', function (Blueprint $table) {
+        Schema::create('ministries', function (Blueprint $table) {
             $table->id();
-            $table->string('batch_no');
-            $table->date('event_date')->nullable();
-            $table->string('facilitator');
-            $table->integer('capacity')->default(10);
+            $table->string('ministry_code');
+            $table->string('ministry_name');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('e2_e_s');
+        Schema::dropIfExists('ministries');
     }
 };
