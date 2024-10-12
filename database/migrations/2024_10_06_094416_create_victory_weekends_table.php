@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('event_date')->nullable();
             $table->string('location');
             $table->string('details');
+            $table->integer('capacity')->default(10);
             $table->timestamps();
         });
     }

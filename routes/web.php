@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\E2EController;
 use App\Http\Controllers\MemberGroupController;
+use App\Http\Controllers\One2OneController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VictoryWeekendController;
 use App\Models\MemberGroup;
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('profile', ProfileController::class);
 
     Route::resource('membergroup', MemberGroupController::class);
+    Route::resource('one2one', One2OneController::class);
     Route::resource('chapter', ChapterController::class);
     Route::resource('e2e', E2EController::class);
     Route::resource('victoryweekend', VictoryWeekendController::class);
