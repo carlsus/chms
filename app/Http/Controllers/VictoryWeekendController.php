@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\VictoryWeekendRequest;
+use App\Models\MemberVictoryWeekend;
 use App\Models\VictoryWeekend;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VictoryWeekendController extends Controller
 {
@@ -15,7 +17,21 @@ class VictoryWeekendController extends Controller
     public function index()
     {
         $victoryweekend=VictoryWeekend::all();
-        return view('victoryweekend.index',compact('victoryweekend'));
+
+        if(Auth::user()->user_type=="member")
+        {
+            return view('victoryweekend.member',compact('victoryweekend'));
+        }elseif(Auth::user()->user_type=="leader")
+        {
+            $victoryweekend = MemberVictoryWeekend::where('status','pending')
+                    ->with('victoryweekend')
+                    ->get();
+                    //dd($victoryweekend);
+            return view('victoryweekend.leader',compact('victoryweekend'));
+        }else{
+            return view('victoryweekend.index',compact('victoryweekend'));
+        }
+
     }
 
     /**

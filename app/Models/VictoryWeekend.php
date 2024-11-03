@@ -9,4 +9,9 @@ class VictoryWeekend extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function membervictoryweekend()
+    {
+        return $this->hasMany(MemberVictoryWeekend::class);
+    }
 }

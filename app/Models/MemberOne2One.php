@@ -5,19 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class One2One extends Model
+class MemberOne2One extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
 
-    public function user()
+    public function chapter()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function leader()
-    {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(Chapter::class);
     }
 }

@@ -5,19 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class One2One extends Model
+class MemberVictoryWeekend extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
-
-    public function user()
+    public function victoryweekend()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function leader()
-    {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(VictoryWeekend::class);
     }
 }

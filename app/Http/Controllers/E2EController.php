@@ -6,6 +6,7 @@ use App\Http\Requests\E2ERequest;
 use App\Models\E2E;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class E2EController extends Controller
 {
@@ -15,7 +16,17 @@ class E2EController extends Controller
     public function index()
     {
         $e2e=E2E::all();
-        return view('e2e.index',compact('e2e'));
+
+        if(Auth::user()->user_type=="member")
+        {
+            return view('e2e.member',compact('e2e'));
+        }elseif(Auth::user()->user_type=="leader")
+        {
+            return view('e2e.leader',compact('one2one'));
+        }else{
+            return view('e2e.index',compact('e2e'));
+        }
+
     }
 
     /**

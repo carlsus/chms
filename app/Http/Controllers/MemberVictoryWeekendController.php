@@ -2,29 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\One2One;
+use App\Models\MemberVictoryWeekend;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class One2OneController extends Controller
+class MemberVictoryWeekendController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $one2one = One2One::whereNull('leader_id')
-                       ->with('user')
-                       ->get();
-        if(Auth::user()->user_type=="member")
-        {
-            return view('one2one.member',compact('one2one'));
-        }elseif(Auth::user()->user_type=="leader")
-        {
-            return view('one2one.leader',compact('one2one'));
-        }
-
-
+        //
     }
 
     /**
@@ -46,7 +34,7 @@ class One2OneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(One2One $one2One)
+    public function show(MemberVictoryWeekend $memberVictoryWeekend)
     {
         //
     }
@@ -54,7 +42,7 @@ class One2OneController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(One2One $one2One)
+    public function edit(MemberVictoryWeekend $memberVictoryWeekend)
     {
         //
     }
@@ -62,7 +50,7 @@ class One2OneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, One2One $one2One)
+    public function update(Request $request, MemberVictoryWeekend $memberVictoryWeekend)
     {
         //
     }
@@ -70,7 +58,7 @@ class One2OneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(One2One $one2One)
+    public function destroy(MemberVictoryWeekend $memberVictoryWeekend)
     {
         //
     }

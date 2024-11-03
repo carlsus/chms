@@ -33,12 +33,12 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('one2one.index')">
-                                {{ __('One2ddOne') }}
+                                {{ __('One2One') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.index')">
+                            <x-dropdown-link :href="route('victoryweekend.index')">
                                 {{ __('Victory Weekend') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.index')">
+                            <x-dropdown-link :href="route('e2e.index')">
                                 {{ __('E2E') }}
                             </x-dropdown-link>
                         </x-slot>
