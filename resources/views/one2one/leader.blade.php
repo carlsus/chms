@@ -42,7 +42,7 @@
 
 
                                     <td class="py-4" align="left">
-                                        <a href="{{ route('victoryweekend.edit', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Assign</a>
+                                        {{-- <a href="{{ route('victoryweekend.edit', $value->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Assign</a> --}}
 
                                     </td>
                                 </tr>

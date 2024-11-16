@@ -20,13 +20,10 @@ class E2EController extends Controller
         if(Auth::user()->user_type=="member")
         {
             return view('e2e.member',compact('e2e'));
-        }elseif(Auth::user()->user_type=="leader")
+        }else
         {
-            return view('e2e.leader',compact('one2one'));
-        }else{
-            return view('e2e.index',compact('e2e'));
+            return view('e2e.leader',compact('e2e'));
         }
-
     }
 
     /**

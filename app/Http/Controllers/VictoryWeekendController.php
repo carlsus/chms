@@ -21,15 +21,13 @@ class VictoryWeekendController extends Controller
         if(Auth::user()->user_type=="member")
         {
             return view('victoryweekend.member',compact('victoryweekend'));
-        }elseif(Auth::user()->user_type=="leader")
+        }else
         {
             $victoryweekend = MemberVictoryWeekend::where('status','pending')
                     ->with('victoryweekend')
                     ->get();
                     //dd($victoryweekend);
             return view('victoryweekend.leader',compact('victoryweekend'));
-        }else{
-            return view('victoryweekend.index',compact('victoryweekend'));
         }
 
     }
